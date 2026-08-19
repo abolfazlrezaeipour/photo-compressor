@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Smart Image Compressor</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="app">
+<header class="topbar">
+  <div><div class="brand"><i></i> SMART IMAGE COMPRESSOR</div><div class="sub">فشرده‌سازی هوشمند تصاویر — کاملاً آفلاین</div></div>
+  <button id="download" class="download">دانلود خروجی</button>
+</header>
+
+<main>
+<section class="hero">
+  <label id="drop" class="drop">
+    <input id="file" type="file" accept="image/*">
+    <div class="upload-icon">↥</div>
+    <h1>تصویر را اینجا رها کنید</h1>
+    <p>یا برای انتخاب تصویر کلیک کنید</p>
+    <small>JPG · PNG · WebP · GIF · BMP</small>
+  </label>
+</section>
+
+<section class="workspace">
+<aside class="panel controls">
+  <div class="section">
+    <h3>حالت فشرده‌سازی</h3>
+    <div class="modes">
+      <button data-mode="lossless" class="active"><b>Lossless</b><small>بدون افت کیفیت</small></button>
+      <button data-mode="high"><b>High Compression</b><small>حجم کمتر</small></button>
+      <button data-mode="webp"><b>WebP Convert</b><small>تبدیل به WebP</small></button>
+    </div>
+  </div>
+
+  <div class="section">
+    <h3>کیفیت خروجی <b id="qualityText">85%</b></h3>
+    <input id="quality" type="range" min="10" max="100" value="85">
+    <div class="range-labels"><span>حجم کمتر</span><span>کیفیت بیشتر</span></div>
+  </div>
+
+  <div class="section">
+    <h3>فرمت خروجی</h3>
+    <div class="formats">
+      <button data-format="image/jpeg">JPG</button>
+      <button data-format="image/png">PNG</button>
+      <button data-format="image/webp" class="active">WEBP</button>
+    </div>
+  </div>
+
+  <div class="section">
+    <h3>تنظیمات</h3>
+    <label class="check"><input id="metadata" type="checkbox"> حفظ اطلاعات متادیتا</label>
+    <label class="check"><input id="progressive" type="checkbox" checked> خروجی بهینه</label>
+  </div>
+
+  <button id="compress" class="compress">فشرده‌سازی تصویر</button>
+</aside>
+
+<section class="panel result">
+  <div class="result-head"><span><i id="dot"></i><span id="status">در انتظار تصویر</span></span><span id="dimensions">—</span></div>
+
+  <div class="previews">
+    <div class="preview-card">
+      <div class="card-head"><span>ORIGINAL</span><b id="beforeSize">—</b></div>
+      <div class="image-box"><img id="before" alt=""></div>
+      <div class="meta" id="beforeMeta">—</div>
+    </div>
+    <div class="arrow">→</div>
+    <div class="preview-card">
+      <div class="card-head"><span>COMPRESSED</span><b id="afterSize">—</b></div>
+      <div class="image-box"><img id="after" alt=""></div>
+      <div class="meta" id="afterMeta">—</div>
+    </div>
+  </div>
+
+  <div class="stats">
+    <div><span>حجم قبل</span><b id="statBefore">—</b></div>
+    <div><span>حجم بعد</span><b id="statAfter">—</b></div>
+    <div><span>کاهش حجم</span><b id="saving">—</b></div>
+    <div><span>فرمت</span><b id="outFormat">WEBP</b></div>
+  </div>
+</section>
+</section>
+</main>
+</div>
+<script src="app.js"></script>
+</body>
+</html>
